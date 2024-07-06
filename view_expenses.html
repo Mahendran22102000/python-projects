@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Expenses</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px;">
+    <h1 style="color: #333;">Expenses</h1>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+        <tr>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">ID</th>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">Date</th>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">Category</th>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">Amount</th>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">Description</th>
+            <th style="border: 1px solid #ccc; padding: 8px; background-color: #f4f4f4; text-align: left;">Action</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">{{ expense[0] }}</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">{{ expense[1] }}</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">{{ expense[2] }}</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">{{ expense[3] }}</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;">{{ expense[4] }}</td>
+            <td style="border: 1px solid #ccc; padding: 8px; text-align: left;"><a href="{{ url_for('delete_expense', id=expense[0]) }}" style="text-decoration: none; color: #007bff;">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}" style="text-decoration: none; color: #007bff;">Home</a>
+</body>
+</html>
